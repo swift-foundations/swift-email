@@ -23,7 +23,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-standards/swift-email-standard", from: "0.2.1"),
+        .package(url: "https://github.com/swift-standards/swift-email-standard", branch: "main"),
         .package(url: "https://github.com/swift-standards/swift-rfc-5322", from: "0.1.0"),
         .package(url: "https://github.com/coenttb/swift-html", exact: "0.11.1"),
         .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.9.2"),
