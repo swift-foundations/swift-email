@@ -1,13 +1,13 @@
 # swift-email
 
-[![CI](https://github.com/coenttb/swift-email/workflows/CI/badge.svg)](https://github.com/coenttb/swift-email/actions/workflows/ci.yml)
+[![CI](https://github.com/swift-foundations/swift-email/workflows/CI/badge.svg)](https://github.com/swift-foundations/swift-email/actions/workflows/ci.yml)
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
 Type-safe email composition with HTML DSL support for Swift.
 
 ## Overview
 
-`swift-email` integrates [swift-email-type](https://github.com/swift-standards/swift-email-type) with [swift-html](https://github.com/coenttb/swift-html), enabling type-safe HTML email composition using a result builder DSL instead of raw HTML strings. The package provides full multipart/alternative email support with automatic content encoding and RFC compliance.
+`swift-email` integrates [swift-email-type](https://github.com/swift-standards/swift-email-type) with [swift-html](https://github.com/swift-foundations/swift-html), enabling type-safe HTML email composition using a result builder DSL instead of raw HTML strings. The package provides full multipart/alternative email support with automatic content encoding and RFC compliance.
 
 ## Features
 
@@ -24,7 +24,7 @@ Add `swift-email` to your package dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/coenttb/swift-email", from: "0.1.0")
+    .package(url: "https://github.com/swift-foundations/swift-email", from: "0.1.0")
 ]
 ```
 
@@ -363,7 +363,7 @@ let email = try Email(
 ## Related Packages
 
 - [swift-email-type](https://github.com/swift-standards/swift-email-type) - Core email types and RFC 2045/2046 implementations for MIME encoding
-- [swift-html](https://github.com/coenttb/swift-html) - Type-safe HTML DSL for Swift with compile-time validation
+- [swift-html](https://github.com/swift-foundations/swift-html) - Type-safe HTML DSL for Swift with compile-time validation
 - [swift-mailgun](https://github.com/coenttb/swift-mailgun) - Mailgun API integration for Swift applications
 
 ## Requirements
@@ -384,4 +384,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## Author
 
 Coen ten Thije Boonkkamp
-https://github.com/coenttb/swift-email
+https://github.com/swift-foundations/swift-email
