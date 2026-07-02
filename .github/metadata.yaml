@@ -1,0 +1,9 @@
+# .github/metadata.yaml
+description: "Type-safe email composition with an HTML DSL for Swift."
+topics:
+  - foundations
+  - email
+  - html
+homepage: "https://swift-institute.org"
+readme:
+  family: E
