@@ -5,7 +5,6 @@
 //  Created by Coen ten Thije Boonkkamp on 01/09/2025.
 //
 
-import Foundation
 import HTML
 
 public struct BaseStyles: HTML {
