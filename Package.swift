@@ -26,7 +26,7 @@ let package = Package(
         .package(url: "https://github.com/swift-standards/swift-email-standard", branch: "main"),
         .package(url: "https://github.com/swift-ietf/swift-rfc-5322", from: "0.1.0"),
         .package(url: "https://github.com/coenttb/swift-html", exact: "0.11.1"),
-        .package(url: "https://github.com/pointfreeco/swift-dependencies", from: "1.9.2"),
+        .package(url: "https://github.com/swift-foundations/swift-dependencies.git", branch: "main"),
         .package(url: "https://github.com/swiftlang/swift-markdown", from: "0.4.0"),
         .package(url: "https://github.com/apple/swift-collections", from: "1.1.2"),
         .package(url: "https://github.com/coenttb/swift-builders", from: "0.0.1"),
