@@ -9,13 +9,13 @@ import Email
 import Foundation
 import Testing
 
-@Suite("Apple Mail Format Tests")
-struct AppleMailTests {
+@Suite
+struct `Apple Mail Format Tests` {
 
     // MARK: - Basic AppleMail.Message Creation
 
-    @Test("Create AppleMail.Message from simple Email")
-    func createAppleMailMessageSimple() throws {
+    @Test
+    func `Create AppleMail.Message from simple Email`() throws {
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
             from: EmailAddress("sender@example.com"),
@@ -45,8 +45,8 @@ struct AppleMailTests {
         #expect(emlContent.contains("Hello, World!"))
     }
 
-    @Test("Create AppleMail.Message with custom UUID")
-    func createAppleMailMessageCustomUUID() throws {
+    @Test
+    func `Create AppleMail.Message with custom UUID`() throws {
         let customUUID = UUID(uuidString: "12345678-1234-1234-1234-123456789ABC")!
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
@@ -64,8 +64,8 @@ struct AppleMailTests {
         #expect(emlContent.contains("X-Universally-Unique-Identifier: \(customUUID.uuidString)"))
     }
 
-    @Test("AppleMail.Message with HTML content")
-    func appleEmailWithHTML() throws {
+    @Test
+    func `AppleMail.Message with HTML content`() throws {
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
             from: EmailAddress("sender@example.com"),
@@ -85,8 +85,8 @@ struct AppleMailTests {
         #expect(emlContent.contains("<p>This is a test.</p>"))
     }
 
-    @Test("AppleMail.Message with multipart content")
-    func appleEmailWithMultipart() throws {
+    @Test
+    func `AppleMail.Message with multipart content`() throws {
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
             from: EmailAddress("sender@example.com"),
@@ -109,8 +109,8 @@ struct AppleMailTests {
 
     // MARK: - Complete Email Tests
 
-    @Test("AppleMail.Message with all email fields")
-    func appleEmailComplete() throws {
+    @Test
+    func `AppleMail.Message with all email fields`() throws {
         let email = try Email(
             to: [
                 EmailAddress("to1@example.com"),
@@ -149,9 +149,11 @@ struct AppleMailTests {
 
     // MARK: - EmailDocument Integration Tests
 
-    @Test("AppleMail.Message from EmailDocument")
-    func appleEmailFromDocument() throws {
-        struct TestEmailDocument: EmailDocument {
+    @Test
+    func `AppleMail.Message from EmailDocument`() throws {
+        struct TestEmailDocument: EmailDocument {}
+
+        extension TestEmailDocument {
             var body: some HTML {
                 HTMLDocument {
                     div {
@@ -191,8 +193,8 @@ struct AppleMailTests {
 
     // MARK: - RFC 5322 Compliance Tests
 
-    @Test("AppleMail.Message produces valid .eml structure")
-    func validEmlStructure() throws {
+    @Test
+    func `AppleMail.Message produces valid .eml structure`() throws {
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
             from: EmailAddress("sender@example.com"),
@@ -220,8 +222,8 @@ struct AppleMailTests {
         #expect(emlContent.contains("Content-Type: "))
     }
 
-    @Test("Message-ID format is valid")
-    func messageIdFormat() throws {
+    @Test
+    func `Message-ID format is valid`() throws {
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
             from: EmailAddress("sender@example.com"),
@@ -248,8 +250,8 @@ struct AppleMailTests {
 
     // MARK: - HTML Builder Integration Tests
 
-    @Test("AppleMail.Message with HTML builder content")
-    func appleEmailWithHTMLBuilder() throws {
+    @Test
+    func `AppleMail.Message with HTML builder content`() throws {
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
             from: EmailAddress("sender@example.com"),
@@ -288,8 +290,8 @@ struct AppleMailTests {
         #expect(emlContent.contains("X-Apple-Base-Url: x-msg://1/"))
     }
 
-    @Test("AppleMail.Message with styled HTML content")
-    func appleEmailStyledHTML() throws {
+    @Test
+    func `AppleMail.Message with styled HTML content`() throws {
         let email = try Email(
             to: [EmailAddress("subscriber@example.com")],
             from: EmailAddress("newsletter@example.com"),
@@ -335,8 +337,8 @@ struct AppleMailTests {
 
     // MARK: - Access to RFC 5322 Message
 
-    @Test("Can access underlying RFC 5322 message")
-    func accessRFC5322Message() throws {
+    @Test
+    func `Can access underlying RFC 5322 message`() throws {
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
             from: EmailAddress("sender@example.com"),

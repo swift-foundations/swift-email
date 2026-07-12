@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 12/11/2025.
 //
 
-import Email_Type
+import Email_Standard
 import Foundation
 import HTML
 

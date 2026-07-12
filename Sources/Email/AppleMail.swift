@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 21/07/2025.
 //
 
-import Email_Type
+import Email_Standard
 import Foundation
 import RFC_5322
 
@@ -99,14 +99,16 @@ extension AppleMail {
             _ = try String(emailDocument)  // Validate emailDocument renders
             try self.init(from: email)
         }
+    }
+}
 
-        public var description: String {
-            message.render()
-        }
+extension AppleMail.Message {
+    public var description: String {
+        message.render()
+    }
 
-        /// The underlying RFC 5322 message
-        public var rfc5322Message: RFC_5322.Message {
-            message
-        }
+    /// The underlying RFC 5322 message
+    public var rfc5322Message: RFC_5322.Message {
+        message
     }
 }

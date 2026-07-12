@@ -23,13 +23,17 @@ public struct EmailMarkdown: HTML {
             Document(parsing: self.markdown, options: .parseBlockDirectives)
         )
     }
+}
 
+extension EmailMarkdown {
     public var body: some HTML {
         content
     }
 }
 
-private struct Visitor: MarkupVisitor {
+private struct Visitor: MarkupVisitor {}
+
+extension Visitor {
     typealias Result = AnyHTML
 
     @HTMLBuilder

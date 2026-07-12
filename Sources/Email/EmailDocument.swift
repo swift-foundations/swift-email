@@ -84,7 +84,9 @@ extension EmailDocument {
 private struct Email: HTML {
     let bodyBytes: ContiguousArray<UInt8>
     let stylesheet: String
+}
 
+extension Email {
     var body: some HTML {
         html {
             tag("head") {
@@ -116,7 +118,9 @@ extension DependencyValues {
     }
 }
 
-private enum EmailPrinterKey: DependencyKey {
+private enum EmailPrinterKey: DependencyKey {}
+
+extension EmailPrinterKey {
     static var liveValue: HTMLPrinter { HTMLPrinter(.email) }
     static var previewValue: HTMLPrinter { HTMLPrinter(.pretty) }
     static var testValue: HTMLPrinter { HTMLPrinter(.pretty) }
