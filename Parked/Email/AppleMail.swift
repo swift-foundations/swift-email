@@ -81,24 +81,18 @@ extension AppleMail {
             self.universalUUID = universalUUID
         }
 
-        /// Creates an Apple Mail message from an EmailDocument
-        ///
-        /// Convenience initializer for email-optimized HTML documents.
-        ///
-        /// - Parameters:
-        ///   - emailDocument: The EmailDocument to render
-        ///   - email: The Email metadata (to, from, subject, etc.)
-        /// - Throws: If email address parsing or HTML rendering fails
-        public init(
-            emailDocument: any EmailDocument,
-            from email: Email
-        ) throws {
-            // This assumes emailDocument renders to HTML
-            // TODO: Create a new Email with the rendered HTML as body
-            // For now, just use the email as-is and rely on it having HTML body
-            _ = try String(emailDocument)  // Validate emailDocument renders
-            try self.init(from: email)
-        }
+        // PARKED (coenttb-ectomy 2026-07-12): the EmailDocument protocol lives in
+        // Parked/Email/EmailDocument.swift (pf-html-era rendering pipeline with no
+        // institute swift-html home yet). Restore this convenience init with it.
+        //
+        // /// Creates an Apple Mail message from an EmailDocument
+        // public init(
+        //     emailDocument: any EmailDocument,
+        //     from email: Email
+        // ) throws {
+        //     _ = try String(emailDocument)  // Validate emailDocument renders
+        //     try self.init(from: email)
+        // }
     }
 }
 

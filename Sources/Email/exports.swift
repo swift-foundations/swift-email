@@ -8,8 +8,6 @@
 @_exported import Dependencies
 @_exported import Email_Standard
 @_exported import HTML
-@_exported import HTMLMarkdown
-@_exported import HTMLTheme
 
 #if TRANSLATING
     @_exported import Translating

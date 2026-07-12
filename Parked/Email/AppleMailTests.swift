@@ -148,48 +148,9 @@ struct `Apple Mail Format Tests` {
     }
 
     // MARK: - EmailDocument Integration Tests
-
-    @Test
-    func `AppleMail.Message from EmailDocument`() throws {
-        struct TestEmailDocument: EmailDocument {}
-
-        extension TestEmailDocument {
-            var body: some HTML {
-                HTMLDocument {
-                    div {
-                        h1 { "Test Email" }
-                        p { "This is from EmailDocument" }
-                    }
-                } head: {
-                    Title { "Test" }
-                    meta(charset: .utf8)()
-                }
-            }
-        }
-
-        let email = try Email(
-            to: [EmailAddress("recipient@example.com")],
-            from: EmailAddress("sender@example.com"),
-            subject: "Document Email",
-            html: {
-                TestEmailDocument()
-            }
-        )
-
-        let appleEmail = try AppleMail.Message(
-            emailDocument: TestEmailDocument(),
-            from: email
-        )
-        let emlContent = appleEmail.description
-
-        // Verify document renders
-        #expect(emlContent.contains("From: sender@example.com"))
-        #expect(emlContent.contains("Subject: Document Email"))
-
-        // Verify Apple headers
-        #expect(emlContent.contains("X-Apple-Base-Url: x-msg://1/"))
-        #expect(emlContent.contains("X-Uniform-Type-Identifier: com.apple.mail-draft"))
-    }
+    // PARKED (coenttb-ectomy 2026-07-12): EmailDocument moved to Parked/Email/ —
+    // no institute swift-html home for its rendering pipeline yet. Restore the
+    // `AppleMail.Message from EmailDocument` test with it.
 
     // MARK: - RFC 5322 Compliance Tests
 
