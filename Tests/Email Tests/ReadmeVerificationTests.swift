@@ -9,13 +9,13 @@ import Email
 import Foundation
 import Testing
 
-@Suite("README Verification")
-struct ReadmeVerificationTests {
+@Suite
+struct `README Verification` {
 
     // MARK: - Quick Start Examples
 
-    @Test("README Example: Simple HTML Email")
-    func simpleHtmlEmail() throws {
+    @Test
+    func `README Example: Simple HTML Email`() throws {
         // From README line 49-65
         let email = try Email(
             to: [EmailAddress("user@example.com")],
@@ -49,8 +49,8 @@ struct ReadmeVerificationTests {
         }
     }
 
-    @Test("README Example: Welcome Email with Styled Button")
-    func welcomeEmailWithStyledButton() throws {
+    @Test
+    func `README Example: Welcome Email with Styled Button`() throws {
         // From README line 70-112
         let verificationUrl = "https://example.com/verify?token=abc123"
 
@@ -109,8 +109,8 @@ struct ReadmeVerificationTests {
         }
     }
 
-    @Test("README Example: Multipart Email (Text + HTML)")
-    func multipartEmail() throws {
+    @Test
+    func `README Example: Multipart Email (Text + HTML)`() throws {
         // From README line 117-146
         let email = try Email(
             to: [EmailAddress("subscriber@example.com")],
@@ -157,8 +157,8 @@ struct ReadmeVerificationTests {
 
     // MARK: - Usage Examples
 
-    @Test("README Example: Newsletter with Dynamic Content")
-    func newsletterWithDynamicContent() throws {
+    @Test
+    func `README Example: Newsletter with Dynamic Content`() throws {
         // From README line 155-222
         struct Article {
             let title: String
@@ -244,8 +244,8 @@ struct ReadmeVerificationTests {
         }
     }
 
-    @Test("README Example: Email with All Optional Fields")
-    func emailWithAllOptionalFields() throws {
+    @Test
+    func `README Example: Email with All Optional Fields`() throws {
         // From README line 227-255
         let email = try Email(
             to: [
@@ -295,8 +295,8 @@ struct ReadmeVerificationTests {
         }
     }
 
-    @Test("README Example: Creating Email Bodies Separately")
-    func creatingEmailBodiesSeparately() throws {
+    @Test
+    func `README Example: Creating Email Bodies Separately`() throws {
         // From README line 262-284
         let body = Email.Body.html {
             HTMLDocument {
@@ -334,8 +334,8 @@ struct ReadmeVerificationTests {
         }
     }
 
-    @Test("README Example: Custom Character Encoding")
-    func customCharacterEncoding() throws {
+    @Test
+    func `README Example: Custom Character Encoding`() throws {
         // From README line 291-299
         let body = Email.Body.html(charset: "ISO-8859-1") {
             HTMLDocument {
@@ -354,8 +354,8 @@ struct ReadmeVerificationTests {
 
     // MARK: - Backward Compatibility
 
-    @Test("README Example: Backward Compatibility")
-    func backwardCompatibility() throws {
+    @Test
+    func `README Example: Backward Compatibility`() throws {
         // From README line 350-356
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
@@ -378,15 +378,15 @@ struct ReadmeVerificationTests {
 
     // MARK: - Additional Verification Tests
 
-    @Test("Verify EmailAddress re-export from Email module")
-    func emailAddressReExport() throws {
+    @Test
+    func `Verify EmailAddress re-export from Email module`() throws {
         // Verify we can use EmailAddress directly from Email module
         let address = try EmailAddress("test@example.com")
         #expect(address.rawValue == "test@example.com")
     }
 
-    @Test("Verify HTML types are accessible via exports")
-    func htmlTypesAccessible() throws {
+    @Test
+    func `Verify HTML types are accessible via exports`() throws {
         // Verify that HTML types from swift-html are accessible
         let email = try Email(
             to: [EmailAddress("test@example.com")],

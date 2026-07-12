@@ -9,13 +9,13 @@ import Email  // Our package that re-exports EmailType
 import Foundation
 import Testing
 
-@Suite("Email HTML Builder Tests")
-struct EmailHTMLTests {
+@Suite
+struct `Email HTML Builder Tests` {
 
     // MARK: - Basic HTML Email Tests
 
-    @Test("Create HTML-only email with simple content")
-    func htmlOnlyEmailSimple() throws {
+    @Test
+    func `Create HTML-only email with simple content`() throws {
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
             from: EmailAddress("sender@example.com"),
@@ -51,8 +51,8 @@ struct EmailHTMLTests {
         }
     }
 
-    @Test("Create HTML-only email with complex structure")
-    func htmlOnlyEmailComplex() throws {
+    @Test
+    func `Create HTML-only email with complex structure`() throws {
         let email = try Email(
             to: [
                 EmailAddress("user1@example.com"),
@@ -118,8 +118,8 @@ struct EmailHTMLTests {
 
     // MARK: - Multipart Email Tests
 
-    @Test("Create multipart email with text and HTML")
-    func multipartEmail() throws {
+    @Test
+    func `Create multipart email with text and HTML`() throws {
         let plainText = "Welcome! Visit https://example.com for more info."
 
         let email = try Email(
@@ -160,8 +160,8 @@ struct EmailHTMLTests {
         }
     }
 
-    @Test("Multipart email with all optional fields")
-    func multipartEmailComplete() throws {
+    @Test
+    func `Multipart email with all optional fields`() throws {
         let email = try Email(
             to: [EmailAddress("to@example.com")],
             from: EmailAddress("from@example.com"),
@@ -193,8 +193,8 @@ struct EmailHTMLTests {
 
     // MARK: - Email.Body Builder Tests
 
-    @Test("Create Email.Body with HTML builder")
-    func bodyHtmlBuilder() throws {
+    @Test
+    func `Create Email.Body with HTML builder`() throws {
         let body = Email.Body.html {
             HTMLDocument {
                 div {
@@ -216,8 +216,8 @@ struct EmailHTMLTests {
         #expect(content.contains("Testing Email.Body.html builder"))
     }
 
-    @Test("Email.Body with custom charset")
-    func bodyCustomCharset() throws {
+    @Test
+    func `Email.Body with custom charset`() throws {
         let body = Email.Body.html(charset: "ISO-8859-1") {
             HTMLDocument {
                 p { "Test content" }
@@ -232,8 +232,8 @@ struct EmailHTMLTests {
 
     // MARK: - Error Handling Tests
 
-    @Test("Email with empty recipients throws error")
-    func emptyRecipientsError() {
+    @Test
+    func `Email with empty recipients throws error`() {
         #expect(throws: Email.Error.self) {
             try Email(
                 to: [],
@@ -246,14 +246,14 @@ struct EmailHTMLTests {
 
     // MARK: - Re-export Verification Tests
 
-    @Test("Can use EmailAddress from re-export")
-    func emailAddressReExport() throws {
+    @Test
+    func `Can use EmailAddress from re-export`() throws {
         let address = try EmailAddress("test@example.com")
         #expect(address.rawValue == "test@example.com")
     }
 
-    @Test("Can create Email with traditional string HTML")
-    func traditionalStringHtml() throws {
+    @Test
+    func `Can create Email with traditional string HTML`() throws {
         // Verify backward compatibility - can still use string-based init
         let email = try Email(
             to: [EmailAddress("recipient@example.com")],
@@ -272,8 +272,8 @@ struct EmailHTMLTests {
 
     // MARK: - Practical Use Case Tests
 
-    @Test("Welcome email with verification link")
-    func welcomeEmailUseCase() throws {
+    @Test
+    func `Welcome email with verification link`() throws {
         let userName = "John Doe"
         let verificationToken = "abc123xyz"
         let verificationUrl = "https://example.com/verify?token=\(verificationToken)"
@@ -359,8 +359,8 @@ struct EmailHTMLTests {
         }
     }
 
-    @Test("Newsletter email with multiple sections")
-    func newsletterEmailUseCase() throws {
+    @Test
+    func `Newsletter email with multiple sections`() throws {
         struct Article {
             let title: String
             let summary: String
