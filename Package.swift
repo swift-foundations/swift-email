@@ -37,12 +37,11 @@ let package = Package(
                 .product(name: "Email Standard", package: "swift-email-standard"),
                 .product(name: "RFC 5322", package: "swift-rfc-5322"),
                 .product(name: "HTML", package: "swift-html"),
-                // PARKED (coenttb-ectomy 2026-07-12): institute swift-html vends only the
-                // consolidated `HTML` product — HTMLTheme/HTMLComponents/HTMLMarkdown do not
-                // exist there. EmailDocument.swift + EmailMarkdown.swift moved to Parked/Email/;
-                // restore them (and the swift-markdown dep below) when institute homes land
-                // (markdown rendering: swift-markdown-html-render "Markdown HTML Rendering";
-                // theme: no institute home yet — open decision).
+                // HANDED OVER (E-1 R-3, 2026-07-13): the parked pf-html-era surface
+                // (EmailDocument/EmailMarkdown/BaseStyles/Email+HTML + tests) now lives in
+                // swift-email-html — live AppleMail .eml surface plus a Parked/ staging of
+                // the pf-era files; their restore stays gated on the OPEN HTML-email story
+                // (see swift-email-html Parked/Email/README.md).
                 .product(name: "Dependencies", package: "swift-dependencies"),
                 .product(name: "OrderedCollections", package: "swift-collections"),
                 .product(
