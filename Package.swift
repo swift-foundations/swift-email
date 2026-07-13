@@ -28,7 +28,8 @@ let package = Package(
         // PARKED with EmailMarkdown.swift (coenttb-ectomy 2026-07-12) — sole consumer:
         // .package(url: "https://github.com/swiftlang/swift-markdown", from: "0.4.0"),
         .package(url: "https://github.com/apple/swift-collections", from: "1.1.2"),
-        .package(url: "https://github.com/swift-foundations/swift-translating.git", branch: "main")
+        .package(url: "https://github.com/swift-foundations/swift-translating.git", branch: "main"),
+        .package(url: "https://github.com/swift-foundations/swift-translating-dependencies.git", branch: "main")
     ],
     targets: [
         .target(
@@ -47,6 +48,11 @@ let package = Package(
                 .product(
                     name: "Translating",
                     package: "swift-translating",
+                    condition: .when(traits: ["Translating"])
+                ),
+                .product(
+                    name: "Translating Dependencies",
+                    package: "swift-translating-dependencies",
                     condition: .when(traits: ["Translating"])
                 )
             ],
