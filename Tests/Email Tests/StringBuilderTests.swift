@@ -10,11 +10,23 @@
 import Email
 import Testing
 
-@Suite
-struct StringBuilderTests {
+extension StringBuilder {
+    @Suite
+    struct Test {
+        @Suite
+        struct Unit {}
 
+        @Suite
+        struct `Edge Case` {}
+
+        @Suite
+        struct Integration {}
+    }
+}
+
+extension StringBuilder.Test.Unit {
     @Test
-    func `Lines join with newlines`() {
+    func `lines join with newlines`() {
         @StringBuilder
         func text() -> String {
             "first"
@@ -24,7 +36,20 @@ struct StringBuilderTests {
     }
 
     @Test
-    func `Optional and conditional branches build`() {
+    func `arrays join with newlines`() {
+        @StringBuilder
+        func text() -> String {
+            for word in ["a", "b", "c"] {
+                word
+            }
+        }
+        #expect(text() == "a\nb\nc")
+    }
+}
+
+extension StringBuilder.Test.`Edge Case` {
+    @Test
+    func `optional and conditional branches build`() {
         @StringBuilder
         func text(include: Bool) -> String {
             "always"
@@ -34,16 +59,5 @@ struct StringBuilderTests {
         }
         #expect(text(include: true) == "always\nsometimes")
         #expect(text(include: false) == "always\n")
-    }
-
-    @Test
-    func `Arrays join with newlines`() {
-        @StringBuilder
-        func text() -> String {
-            for word in ["a", "b", "c"] {
-                word
-            }
-        }
-        #expect(text() == "a\nb\nc")
     }
 }
