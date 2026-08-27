@@ -1,7 +1,7 @@
 # .github/metadata.yaml
 description: "Type-safe email composition with an HTML DSL for Swift."
 topics:
-  - foundations
+  - compositions
   - email
   - html
 homepage: "https://swift-institute.org"
